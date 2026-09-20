@@ -4,9 +4,9 @@ An AI-powered platform for Nigerian teachers to generate, manage, and export NER
 
 > **Status:** Portfolio → Production-ready. Active development.
 
-Live: [web-teacher-notes.vercel.app](#) | API: [api-teacher-notes.onrender.com](#)
+Live: [web-teacher-notes.vercel.app](https://www.github.com/udohlawrence) | API: [api-teacher-notes.onrender.com](https://www.github.com/udohlawrence)
 
-### Core Features
+## Core Features
 
 - Generate lesson notes aligned with NERDC curriculum
 - Roles: Teacher, HOD, School Admin
@@ -14,7 +14,7 @@ Live: [web-teacher-notes.vercel.app](#) | API: [api-teacher-notes.onrender.com](
 - Curriculum autocomplete (ClassLevel, NERDC Subject, Topics)
 - Offline-ready mobile app for teachers in low-connectivity areas
 
-### Tech Stack
+## Tech Stack
 
 | Layer | Tech |
 | :--- | :--- |
@@ -26,13 +26,13 @@ Live: [web-teacher-notes.vercel.app](#) | API: [api-teacher-notes.onrender.com](
 | **Auth** | NextAuth / JWT |
 | **Deployment** | Vercel (web), Render/Fly (api), EAS (mobile) |
 
-### Folder Structure
+## Folder Structure
 
 ![Folder Structure](./repo-arts/folder-structure.png)
 
 **Key Architectural Decision:** No nested `.git` folders. Only one `.git` at root. All packages are linked via `workspace:*`.
 
-### Prerequisites
+## Prerequisites
 
 - Node.js >= 20
 - pnpm 9.12.1+ (enforced via `packageManager` field)
@@ -41,7 +41,7 @@ Live: [web-teacher-notes.vercel.app](#) | API: [api-teacher-notes.onrender.com](
   npm i -g pnpm
   ```
 
-### Getting Started
+## Getting Started
 
 1. **Clone & Install**
 
@@ -58,17 +58,37 @@ Live: [web-teacher-notes.vercel.app](#) | API: [api-teacher-notes.onrender.com](
   JWT_SECRET="super-secret"
   PORT=4000
   ```
+
 apps/web/.env.local
+
   ```javascript
   DATABASE_URL="postgresql://..."
   JWT_SECRET="super-secret"
   PORT=4000
   ```
+
   apps/mobile/.env
+
   ```javascript
   EXPO_PUBLIC_API_URL=http://10.0.2.2:4000 # Android emulator
   ```
+
 3. **Run Dev (All Apps)**
-  ```
+
+  ```bash
   pnpm dev
   ```
+
+## Scripts
+
+Run from **ROOT**
+
+| Command | Description |
+| :-- | :-- |
+| _pnpm dev_ | Run all apps in parallel (web + api + mobile) |
+| _pnpm build_ | Build all apps & packages |
+| _pnpm lint_ | Lint all workspaces |
+| _pnpm --filter web dev_ | Run only web |
+| _pnpm --filter api dev_ | Run only api |
+| _pnpm --filter mobile dev_ | Run only mobile |
+| _pnpm --filter @repo/shared-types build_ | Build shared types |
